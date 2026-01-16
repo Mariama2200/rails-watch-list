@@ -1,0 +1,17 @@
+<div class="page-wrap">
+  <div class="container hero container-narrow">
+    <div class="card card-cinema shadow-sm p-4">
+      <h2 class="mb-3 text-white">Add a movie</h2>
+
+      <%= simple_form_for([@list, @bookmark]) do |f| %>
+        <%= f.association :movie, collection: Movie.all, prompt: "Choose a movie", input_html: { class: "form-select" } %>
+        <%= f.input :comment, input_html: { class: "form-control" } %>
+
+        <div class="d-flex gap-2 mt-3">
+          <%= f.button :submit, "Add", class: "btn btn-light fw-semibold" %>
+          <%= link_to "Cancel", list_path(@list), class: "btn btn-outline-light" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
